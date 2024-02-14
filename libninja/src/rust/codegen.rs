@@ -518,7 +518,13 @@ mod tests {
 }
 
 pub fn is_restricted(s: &str) -> bool {
-    ["type", "use", "ref", "self", "match", "final"].contains(&s)
+    [
+        "as", "break", "const", "continue", "crate", "else", "enum", "extern", "false", "fn",
+        "for", "if", "impl", "in", "let", "loop", "match", "mod", "move", "mut", "pub", "ref",
+        "return", "self", "Self", "static", "struct", "super", "trait", "true", "type", "unsafe",
+        "use", "where", "while", "async", "await", "dyn", "abstract", "become", "box", "do",
+        "final", "macro", "override", "priv", "typeof", "unsized", "virtual", "yield", "try",
+    ].contains(&s)
 }
 
 pub fn serde_rename(one: &str, two: &Ident) -> TokenStream {
