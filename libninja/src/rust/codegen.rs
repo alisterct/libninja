@@ -438,6 +438,10 @@ fn sanitize(s: impl AsRef<str>) -> String {
     if s.chars().next().unwrap().is_numeric() {
         s = format!("_{}", s)
     }
+
+    let mut s = s.replace('[', "_lsq_")
+        .replace(']', "_rsq_");
+
     assert_valid_ident(&s, original);
     s
 }
